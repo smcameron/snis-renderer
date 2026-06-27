@@ -1,0 +1,3 @@
+*.o
+*.so
+examples/basic-example/main

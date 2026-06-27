@@ -13,7 +13,7 @@ Q=@
 ECHO=echo
 endif
 
-MYCFLAGS=${DEBUGFLAG} ${OPTIMIZEFLAG} --pedantic -Wall ${STOP_ON_WARN} ${CFLAGS}
+MYCFLAGS=${DEBUGFLAG} ${OPTIMIZEFLAG} --pedantic -Wall -fpic ${STOP_ON_WARN} ${CFLAGS}
 COMPILE=$(CC) ${MYCFLAGS} -c -o $@ $< && $(ECHO) '  COMPILE' $<
 
 mikktspace.o:	mikktspace.c mikktspace.h Makefile
