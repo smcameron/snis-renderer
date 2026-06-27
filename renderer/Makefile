@@ -17,7 +17,7 @@ MYCFLAGS=-DDESTDIR=${DESTDIR} -DPREFIX=${PREFIX} ${DEBUGFLAG} ${PROFILEFLAG} \
 
 OBJS=graph_dev.o quat.o matrix.o snis_graph.o mathutils.o vec4.o entity.o workqueue.o pthread_util.o shader.o stacktrace.o string-utils.o \
 	opengl_cap.o png_utils.o liang-barsky.o bline.o ui_colors.o mtwist.o snis_alloc.o mesh.o mikktspace/mikktspace.o \
-	open-simplex-noise.o
+	open-simplex-noise.o material.o
 
 PNGLIBS:=$(shell $(PKG_CONFIG) --libs libpng)
 PNGCFLAGS:=$(shell $(PKG_CONFIG) --cflags libpng)
