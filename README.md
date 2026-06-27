@@ -1,11 +1,19 @@
-This is the renderer code extracted out of space-nerds-in-space so that
-it may be used in other projects.  An attempt was made to preserve the git
-history.
 
-I ran the following on space-nerds-in-space repo on Sat 27 Jun 2026 03:09:55 PM EDT
+snis-renderer
+-------------
 
+This is the renderer code extracted out of [Space Nerds in Space](https://spacenerdsinspace.com) and put
+into a shared library, libsnis-renderer.so so that it may be more easily reused in other projects.
+
+As renderers go, it's not a particularly great renderer, so you probably
+want to use something else.  This exists mainly for me (smcameron).
+
+An attempt was made to preserve the git history.  I ran the following on space-nerds-in-space repo on Sat 27 Jun 2026 03:09:55 PM EDT
+
+```
 git-filter-repo --paths-from-file ~/renderer-files.txt
 git-filter-repo --path-rename :renderer/
+```
 
 The contents of renderer-files.txt was:
 
