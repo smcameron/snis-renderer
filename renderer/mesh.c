@@ -206,7 +206,8 @@ void mesh_derelict(struct mesh *m, float distortion)
 	mesh_graph_dev_init(m);
 }
 
-void mesh_scale(struct mesh *m, float scale)
+
+static void mesh_scale_helper(struct mesh *m, float scale)
 {
 	int i;
 
@@ -216,6 +217,11 @@ void mesh_scale(struct mesh *m, float scale)
 		m->v[i].z *= scale;
 	}
 	m->radius = mesh_compute_radius(m);
+}
+
+void mesh_scale(struct mesh *m, float scale)
+{
+	mesh_scale_helper(m, scale);
 	mesh_graph_dev_init(m);
 }
 
@@ -1627,6 +1633,7 @@ struct mesh *mesh_unit_cube(int subdivisions)
 	mesh_set_flat_shading_vertex_normals(m);
 	m->nlines = 0;
 	m->radius = mesh_compute_radius(m);
+	mesh_scale_helper(m, 0.5); /* Scale cube so each side is 1 unit */
 	mesh_graph_dev_init(m);
 	return m;
 bail:
