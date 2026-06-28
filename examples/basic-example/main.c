@@ -175,9 +175,12 @@ static void move_objects(void)
 	static int timer = 0;
 	union quat orientation;
 
-	quat_init_axis(&orientation, 0, 1, 0, (timer % 360) * M_PI / 180.0);
+	quat_init_axis(&orientation, 1, 1, 1, (timer % 360) * M_PI / 180.0);
+	quat_normalize_self(&orientation);
 	update_entity_orientation(box, &orientation);
 	timer++;
+	if (timer == 360)
+		timer = 0;
 }
 
 static void draw_window(SDL_Window *window)
@@ -244,8 +247,8 @@ int main(__attribute__((unused)) int argc, __attribute__((unused))  char *argv[]
 	calculate_camera_transform(ecx);
 	entity_context_set_hi_lo_poly_pixel_threshold(ecx, 200.0);
 
-	set_lighting(ecx, 20.0, 20.0, 20.0);
-	set_ambient_light(ecx, 0.35);
+	set_lighting(ecx, 20.0, -20.0, -20.0);
+	set_ambient_light(ecx, 0.05);
 
 	box = add_entity(ecx, unitcube, 0, 0, 0, WHITE);
 	update_entity_material(box, &box_material);
